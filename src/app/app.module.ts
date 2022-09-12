@@ -21,6 +21,24 @@ import { HighlightedDirective } from './directives/highlighted.directive';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SuccesModalComponent } from './succes-modal/succes-modal.component';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
+import { CreateSuccessModalComponent } from './create-success-modal/create-success-modal.component';
+import { ErrorUpdateModalComponent } from './Error/error-update-modal/error-update-modal.component';
+import { ErrorCreateModalComponent } from './Error/error-create-modal/error-create-modal.component';
+import { ErrorLoadModalComponent } from './Error/error-load-modal/error-load-modal.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { TableHomeComponent } from './table-home/table-home.component';
+import { CreateUserSuccessModalComponent } from './create-user-success-modal/create-user-success-modal.component';
+import { ErrorCreateUserComponent } from './error-create-user/error-create-user.component';
+import { LoginSuccessModalComponent } from './login-success-modal/login-success-modal.component';
+import { LoginErrorModalComponent } from './login-error-modal/login-error-modal.component';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthGuardComponent } from './guards/auth-guard/auth-guard.component';
+import { AuthGuardService } from './guards/auth-guard';
 
 @NgModule({
   declarations: [
@@ -28,6 +46,20 @@ import { MatSortModule } from '@angular/material/sort';
     DialogComponent,
     DialogModalComponent,
     HighlightedDirective,
+    SuccesModalComponent,
+    DeleteModalComponent,
+    CreateSuccessModalComponent,
+    ErrorUpdateModalComponent,
+    ErrorCreateModalComponent,
+    ErrorLoadModalComponent,
+    SignupComponent,
+    LoginComponent,
+    TableHomeComponent,
+    CreateUserSuccessModalComponent,
+    ErrorCreateUserComponent,
+    LoginSuccessModalComponent,
+    LoginErrorModalComponent,
+    AuthGuardComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +81,10 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
   ],
-  providers: [],
+  providers: [CookieService, AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

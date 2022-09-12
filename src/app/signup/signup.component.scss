@@ -1,0 +1,75 @@
+.header-toolbar {
+  background-color: rgb(49, 79, 154);
+  border: none;
+  box-shadow: 0px 0px 5px 2px #333;
+  color: white;
+}
+#container {
+  display: flex;
+  align-items: center !important;
+  justify-content: center;
+}
+form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center;
+  margin-top: 2.5%;
+  width: 400px;
+  height: 100%;
+  padding: 20px;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 15px 0px rgb(126, 126, 126);
+}
+mat-form-field {
+  width: 60%;
+}
+:host ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #f44336;
+}
+#btn-cadastro {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  width: 200px;
+}
+.span-btn {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#eye-icon-first {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+#eye-icon-second {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.error-email {
+  color: red;
+  font-weight: 500;
+}
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#link-btn {
+  margin-top: 10px;
+  a {
+    color: #333;
+    text-decoration: none;
+
+    cursor: pointer;
+    &:hover {
+      color: #7200cf;
+    }
+  }
+}

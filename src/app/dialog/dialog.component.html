@@ -1,24 +1,72 @@
-<h1 mat-dialog-title>Adicionar Produto</h1>
+<div class="spinner">
+  <h1 mat-dialog-title>Adicionar Produto</h1>
+</div>
+
 <div class="mat-dialog-content">
   <form [formGroup]="productForm">
     <mat-form-field appearance="outline">
       <mat-label>Nome do Produto</mat-label>
       <input matInput placeholder="Name" formControlName="productName" />
     </mat-form-field>
+    <div
+      *ngIf="
+        productForm.controls['productName'].invalid &&
+        (productForm.controls['productName'].dirty ||
+          productForm.controls['productName'].touched)
+      "
+      class="alert"
+    >
+      <div
+        class="error-email"
+        *ngIf="productForm.controls['productName'].errors?.['required']"
+      >
+        Por favor selecione um produto.
+      </div>
+    </div>
     <mat-form-field appearance="outline">
       <mat-label>Categoria do Produto</mat-label>
       <mat-select formControlName="category" placeholder="Category">
-        <mat-option value="Fruits">Esporte</mat-option>
-        <mat-option value="Vegetables">Casa</mat-option>
-        <mat-option value="Eletronics">Eletrônico</mat-option>
+        <mat-option value="Esporte">Esporte</mat-option>
+        <mat-option value="Casa">Casa</mat-option>
+        <mat-option value="Eletrônico">Eletrônico</mat-option>
       </mat-select>
     </mat-form-field>
+    <div
+      *ngIf="
+        productForm.controls['category'].invalid &&
+        (productForm.controls['category'].dirty ||
+          productForm.controls['category'].touched)
+      "
+      class="alert"
+    >
+      <div
+        class="error-email"
+        *ngIf="productForm.controls['category'].errors?.['required']"
+      >
+        Por favor selecione uma categoria.
+      </div>
+    </div>
     <mat-form-field appearance="outline">
       <mat-label>Escolha a Data</mat-label>
       <input formControlName="date" matInput [matDatepicker]="picker" />
       <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+    <div
+      *ngIf="
+        productForm.controls['date'].invalid &&
+        (productForm.controls['date'].dirty ||
+          productForm.controls['date'].touched)
+      "
+      class="alert"
+    >
+      <div
+        class="error-email"
+        *ngIf="productForm.controls['date'].errors?.['required']"
+      >
+        Por favor selecione uma data.
+      </div>
+    </div>
     <label for=""><h1>Característica</h1></label>
     <mat-radio-group formControlName="freshness" class="example-radio-group">
       <mat-radio-button
@@ -29,6 +77,21 @@
         {{ fresh }}
       </mat-radio-button>
     </mat-radio-group>
+    <div
+      *ngIf="
+        productForm.controls['freshness'].invalid &&
+        (productForm.controls['freshness'].dirty ||
+          productForm.controls['freshness'].touched)
+      "
+      class="alert"
+    >
+      <div
+        class="error-email"
+        *ngIf="productForm.controls['freshness'].errors?.['required']"
+      >
+        Por favor selecione uma característica.
+      </div>
+    </div>
     <mat-form-field appearance="outline">
       <mat-label>Preço</mat-label>
       <input
@@ -38,6 +101,21 @@
         placeholder="Name"
       />
     </mat-form-field>
+    <div
+      *ngIf="
+        productForm.controls['price'].invalid &&
+        (productForm.controls['price'].dirty ||
+          productForm.controls['price'].touched)
+      "
+      class="alert"
+    >
+      <div
+        class="error-email"
+        *ngIf="productForm.controls['price'].errors?.['required']"
+      >
+        Por favor selecione um preço.
+      </div>
+    </div>
     <mat-form-field appearance="outline">
       <mat-label>Comentários</mat-label>
       <textarea
@@ -50,7 +128,12 @@
 </div>
 <div mat-dialog-actions [align]="'end'">
   <button mat-raised-button color="warn" (click)="closeModal()">Fechar</button>
-  <button mat-raised-button color="primary" (click)="addProduct()">
+  <button
+    mat-stroked-button
+    mat-raised-button
+    color="primary"
+    (click)="addProduct()"
+  >
     <!-- Salvar -->
     {{ actionBtn }}
   </button>

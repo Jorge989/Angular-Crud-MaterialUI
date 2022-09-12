@@ -10,3 +10,16 @@ mat-form-field {
 .example-radio-button {
   margin: 5px;
 }
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.spinner-icon {
+  margin-top: -20px;
+}
+.error-email {
+  text-align: center;
+  color: red;
+  font-weight: 500;
+}

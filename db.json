@@ -1,5 +1,15 @@
 {
-  "productList": [],
+  "productList": [
+    {
+      "productName": "tester",
+      "category": "Vegetables",
+      "freshness": "Novo",
+      "price": 250,
+      "date": "2022-07-11T03:00:00.000Z",
+      "comment": "tester",
+      "id": 1
+    }
+  ],
   "comments": [
     {
       "id": 1,

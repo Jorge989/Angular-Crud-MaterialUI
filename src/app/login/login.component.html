@@ -1,0 +1,113 @@
+<mat-toolbar class="header-toolbar">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>supervised_user_circle</mat-icon>
+  </button>
+  <span>Angular 13 CRUD utilizando Material UI</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+<div>
+  <form [formGroup]="loginForm">
+    <h1>Entrar</h1>
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input
+        matInput
+        placeholder="Email"
+        formControlName="email"
+        [pattern]="emailPattern"
+      />
+    </mat-form-field>
+    <div
+      *ngIf="
+        loginForm.controls['email'].invalid &&
+        (loginForm.controls['email'].dirty ||
+          loginForm.controls['email'].touched)
+      "
+      class="alert"
+    >
+      <div
+        class="error-email"
+        *ngIf="loginForm.controls['email'].errors?.['required']"
+      >
+        Por favor selecione um e-mail.
+      </div>
+      <div
+        class="error-email"
+        *ngIf="loginForm.controls['email'].errors?.['pattern']"
+      >
+        Por favor selecione um e-mail válido.
+      </div>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input
+        matInput
+        placeholder="Senha"
+        [type]="changeType ? 'password' : 'text'"
+        formControlName="password"
+      />
+      <!-- <mat-icon
+        id="eye-icon-first"
+        (click)="viewpassword()"
+        style="font-size: 23px; color: #3f51b5"
+        >remove_red_eye</mat-icon
+      > -->
+      <span
+        id="eye-icon-first"
+        (click)="viewpassword()"
+        *ngIf="isPasswordVisible"
+        ><i
+          style="font-size: 19px; color: #3f51b5; cursor: pointer"
+          class="fa fa-eye"
+          [ngClass]="'fa fa-eye-slash'"
+          aria-hidden="true"
+        ></i
+      ></span>
+      <span
+        id="eye-icon-first"
+        (click)="viewpassword()"
+        *ngIf="!isPasswordVisible"
+        ><i
+          style="font-size: 19px; color: #3f51b5; cursor: pointer"
+          class="fa fa-eye"
+          [ngClass]="'fa fa-eye'"
+          aria-hidden="true"
+        ></i
+      ></span>
+    </mat-form-field>
+    <div
+      *ngIf="
+        loginForm.controls['password'].invalid &&
+        (loginForm.controls['password'].dirty ||
+          loginForm.controls['password'].touched)
+      "
+      class="alert"
+    >
+      <div
+        class="error-email"
+        *ngIf="loginForm.controls['password'].errors?.['required']"
+      >
+        Por favor selecione uma senha.
+      </div>
+    </div>
+    <button
+      (click)="LoginUser()"
+      mat-raised-button
+      color="primary"
+      id="btn-cadastro"
+    >
+      <!-- Salvar -->
+      <span class="span-btn" *ngIf="!isLoading">Confirmar</span>
+      <span class="span-btn" *ngIf="isLoading"
+        >Confirmar<mat-spinner [diameter]="20"></mat-spinner
+      ></span>
+    </button>
+    <span id="link-btn">
+      <a [routerLink]="''">ainda não possui cadastro?</a>
+    </span>
+  </form>
+</div>

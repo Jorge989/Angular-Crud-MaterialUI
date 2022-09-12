@@ -1,0 +1,32 @@
+.header-toolbar {
+  background-color: rgb(49, 79, 154);
+  border: none;
+  box-shadow: 0px 0px 5px 2px #333;
+  color: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.spacer {
+  height: 10px;
+  margin-bottom: 120px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.actions {
+}
+td,
+th {
+  width: 22%;
+}
